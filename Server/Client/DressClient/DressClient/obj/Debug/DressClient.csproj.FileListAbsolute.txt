@@ -1,0 +1,14 @@
+D:\Projects\Dress Exchange\Server\Client\DressClient\DressClient\bin\Debug\DressClient.exe.config
+D:\Projects\Dress Exchange\Server\Client\DressClient\DressClient\bin\Debug\DressClient.exe
+D:\Projects\Dress Exchange\Server\Client\DressClient\DressClient\bin\Debug\DressClient.pdb
+D:\Projects\Dress Exchange\Server\Client\DressClient\DressClient\obj\Debug\DressClient.csprojAssemblyReference.cache
+D:\Projects\Dress Exchange\Server\Client\DressClient\DressClient\obj\Debug\DressClient.csproj.CoreCompileInputs.cache
+D:\Projects\Dress Exchange\Server\Client\DressClient\DressClient\obj\Debug\DressClient.exe
+D:\Projects\Dress Exchange\Server\Client\DressClient\DressClient\obj\Debug\DressClient.pdb
+D:\Projects\Dress_Exchange\Server\Client\DressClient\DressClient\bin\Debug\DressClient.exe.config
+D:\Projects\Dress_Exchange\Server\Client\DressClient\DressClient\bin\Debug\DressClient.exe
+D:\Projects\Dress_Exchange\Server\Client\DressClient\DressClient\bin\Debug\DressClient.pdb
+D:\Projects\Dress_Exchange\Server\Client\DressClient\DressClient\obj\Debug\DressClient.csprojAssemblyReference.cache
+D:\Projects\Dress_Exchange\Server\Client\DressClient\DressClient\obj\Debug\DressClient.csproj.CoreCompileInputs.cache
+D:\Projects\Dress_Exchange\Server\Client\DressClient\DressClient\obj\Debug\DressClient.exe
+D:\Projects\Dress_Exchange\Server\Client\DressClient\DressClient\obj\Debug\DressClient.pdb

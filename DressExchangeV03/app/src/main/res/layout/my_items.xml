@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/dressImage"
+        android:layout_width="356dp"
+        android:layout_height="132dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorAccent"
+        app:srcCompat="@drawable/dress" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="181dp"
+        android:layout_height="23dp"
+        android:layout_below="@+id/dressImage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorAccent"
+        android:text="Description"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="title" />
+
+    <TextView
+        android:id="@+id/size"
+        android:layout_width="356dp"
+        android:layout_height="19dp"
+        android:layout_below="@+id/title"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="1dp"
+        android:background="@color/colorAccent"
+        android:text="size" />
+
+    <TextView
+        android:id="@+id/condition"
+        android:layout_width="356dp"
+        android:layout_height="47dp"
+        android:layout_below="@+id/size"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorAccent"
+        android:text="Condition" />
+
+    <TextView
+        android:id="@+id/suburb"
+        android:layout_width="118dp"
+        android:layout_height="23dp"
+        android:layout_below="@+id/dressImage"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/title"
+        android:background="@color/colorAccent"
+        android:text="suburb"
+        android:textAlignment="textEnd"
+        android:textColor="@color/design_default_color_primary"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/edit"
+        android:layout_width="53dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/com_facebook_close"
+        android:text="Edit" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="53dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="15dp"
+        android:background="@drawable/ic_menu_manage"
+        android:text="delete" />
+
+</RelativeLayout>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Dress_Exchange_devModelStoreContainer" CdmEntityContainer="Dress_Exchange_devEntities">
+    <EntitySetMapping Name="dresses">
+      <EntityTypeMapping TypeName="Dress_Exchange_devModel.dress">
+        <MappingFragment StoreEntitySet="dress">
+          <ScalarProperty Name="dress_id" ColumnName="dress_id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="dress_desc" ColumnName="dress_desc" />
+          <ScalarProperty Name="photo_bytes" ColumnName="photo_bytes" />
+          <ScalarProperty Name="insert_datetime" ColumnName="insert_datetime" />
+          <ScalarProperty Name="insert_user" ColumnName="insert_user" />
+          <ScalarProperty Name="insert_process" ColumnName="insert_process" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+          <ScalarProperty Name="update_process" ColumnName="update_process" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="likes">
+      <EntityTypeMapping TypeName="Dress_Exchange_devModel.like">
+        <MappingFragment StoreEntitySet="likes">
+          <ScalarProperty Name="likes_id" ColumnName="likes_id" />
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="liked_user_id" ColumnName="liked_user_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="Dress_Exchange_devModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="users_id" ColumnName="users_id" />
+          <ScalarProperty Name="facebook_login" ColumnName="facebook_login" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="fullname" ColumnName="fullname" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="insert_datetime" ColumnName="insert_datetime" />
+          <ScalarProperty Name="insert_user" ColumnName="insert_user" />
+          <ScalarProperty Name="insert_process" ColumnName="insert_process" />
+          <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+          <ScalarProperty Name="update_user" ColumnName="update_user" />
+          <ScalarProperty Name="update_process" ColumnName="update_process" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

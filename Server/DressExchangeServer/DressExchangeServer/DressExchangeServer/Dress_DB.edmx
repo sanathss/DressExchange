@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Dress_Exchange_devModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dress">
+          <Key>
+            <PropertyRef Name="dress_id" />
+          </Key>
+          <Property Name="dress_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="users_id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="size" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="condition" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="insert_datetime" Type="datetime" />
+          <Property Name="insert_user" Type="varchar" MaxLength="20" />
+          <Property Name="insert_process" Type="varchar" MaxLength="20" />
+          <Property Name="update_datetime" Type="datetime" />
+          <Property Name="update_user" Type="varchar" MaxLength="20" />
+          <Property Name="update_process" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="dress_photo">
+          <Key>
+            <PropertyRef Name="dress_photo_id" />
+          </Key>
+          <Property Name="dress_photo_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dress_id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="photo_location" Type="varchar" MaxLength="20" />
+          <Property Name="photo_bytes" Type="varbinary(max)" />
+          <Property Name="photo_encoded" Type="varchar(max)" />
+          <Property Name="dimensions" Type="varchar" MaxLength="10" />
+          <Property Name="insert_datetime" Type="datetime" />
+          <Property Name="insert_user" Type="varchar" MaxLength="20" />
+          <Property Name="insert_process" Type="varchar" MaxLength="20" />
+          <Property Name="update_datetime" Type="datetime" />
+          <Property Name="update_user" Type="varchar" MaxLength="20" />
+          <Property Name="update_process" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="likes">
+          <Key>
+            <PropertyRef Name="likes_id" />
+          </Key>
+          <Property Name="likes_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="users_id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="liked_user_id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="suburb">
+          <Key>
+            <PropertyRef Name="suburb_id" />
+          </Key>
+          <Property Name="suburb_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="suburb_name" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="users_id" />
+          </Key>
+          <Property Name="users_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="facebook_login" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="fullname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="size" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="suburb_id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="insert_datetime" Type="datetime" />
+          <Property Name="insert_user" Type="varchar" MaxLength="20" />
+          <Property Name="insert_process" Type="varchar" MaxLength="20" />
+          <Property Name="update_datetime" Type="datetime" />
+          <Property Name="update_user" Type="varchar" MaxLength="20" />
+          <Property Name="update_process" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="dress_photo_dress_FK">
+          <End Role="dress" Type="Self.dress" Multiplicity="1" />
+          <End Role="dress_photo" Type="Self.dress_photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dress">
+              <PropertyRef Name="dress_id" />
+            </Principal>
+            <Dependent Role="dress_photo">
+              <PropertyRef Name="dress_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dress_users_FK">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="dress" Type="Self.dress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="users_id" />
+            </Principal>
+            <Dependent Role="dress">
+              <PropertyRef Name="users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="liked_user_FK">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="likes" Type="Self.likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="users_id" />
+            </Principal>
+            <Dependent Role="likes">
+              <PropertyRef Name="liked_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="liker_users_FK">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="likes" Type="Self.likes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="users_id" />
+            </Principal>
+            <Dependent Role="likes">
+              <PropertyRef Name="users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Dress_Exchange_devModelStoreContainer">
+          <EntitySet Name="dress" EntityType="Self.dress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dress_photo" EntityType="Self.dress_photo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="likes" EntityType="Self.likes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="suburb" EntityType="Self.suburb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="dress_photo_dress_FK" Association="Self.dress_photo_dress_FK">
+            <End Role="dress" EntitySet="dress" />
+            <End Role="dress_photo" EntitySet="dress_photo" />
+          </AssociationSet>
+          <AssociationSet Name="dress_users_FK" Association="Self.dress_users_FK">
+            <End Role="users" EntitySet="users" />
+            <End Role="dress" EntitySet="dress" />
+          </AssociationSet>
+          <AssociationSet Name="liked_user_FK" Association="Self.liked_user_FK">
+            <End Role="users" EntitySet="users" />
+            <End Role="likes" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="liker_users_FK" Association="Self.liker_users_FK">
+            <End Role="users" EntitySet="users" />
+            <End Role="likes" EntitySet="likes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Dress_Exchange_devModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="dress">
+          <Key>
+            <PropertyRef Name="dress_id" />
+          </Key>
+          <Property Name="dress_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="users_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="size" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="condition" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="insert_datetime" Type="DateTime" Precision="3" />
+          <Property Name="insert_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="insert_process" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="update_process" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="dress_photo" Relationship="Self.dress_photo_dress_FK" FromRole="dress" ToRole="dress_photo" />
+          <NavigationProperty Name="user" Relationship="Self.dress_users_FK" FromRole="dress" ToRole="users" />
+        </EntityType>
+        <EntityType Name="dress_photo">
+          <Key>
+            <PropertyRef Name="dress_photo_id" />
+          </Key>
+          <Property Name="dress_photo_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dress_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="photo_location" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="photo_bytes" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="photo_encoded" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dimensions" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="insert_datetime" Type="DateTime" Precision="3" />
+          <Property Name="insert_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="insert_process" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="update_process" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="dress" Relationship="Self.dress_photo_dress_FK" FromRole="dress_photo" ToRole="dress" />
+        </EntityType>
+        <EntityType Name="like">
+          <Key>
+            <PropertyRef Name="likes_id" />
+          </Key>
+          <Property Name="likes_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="users_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="liked_user_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.liked_user_FK" FromRole="likes" ToRole="users" />
+          <NavigationProperty Name="user1" Relationship="Self.liker_users_FK" FromRole="likes" ToRole="users" />
+        </EntityType>
+        <EntityType Name="suburb">
+          <Key>
+            <PropertyRef Name="suburb_id" />
+          </Key>
+          <Property Name="suburb_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="suburb_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="users_id" />
+          </Key>
+          <Property Name="users_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="facebook_login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="size" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="suburb_id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="insert_datetime" Type="DateTime" Precision="3" />
+          <Property Name="insert_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="insert_process" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="update_datetime" Type="DateTime" Precision="3" />
+          <Property Name="update_user" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="update_process" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="dresses" Relationship="Self.dress_users_FK" FromRole="users" ToRole="dress" />
+          <NavigationProperty Name="likes" Relationship="Self.liked_user_FK" FromRole="users" ToRole="likes" />
+          <NavigationProperty Name="likes1" Relationship="Self.liker_users_FK" FromRole="users" ToRole="likes" />
+        </EntityType>
+        <Association Name="dress_photo_dress_FK">
+          <End Role="dress" Type="Self.dress" Multiplicity="1" />
+          <End Role="dress_photo" Type="Self.dress_photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dress">
+              <PropertyRef Name="dress_id" />
+            </Principal>
+            <Dependent Role="dress_photo">
+              <PropertyRef Name="dress_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="dress_users_FK">
+          <End Role="users" Type="Self.user" Multiplicity="1" />
+          <End Role="dress" Type="Self.dress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="users_id" />
+            </Principal>
+            <Dependent Role="dress">
+              <PropertyRef Name="users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="liked_user_FK">
+          <End Role="users" Type="Self.user" Multiplicity="1" />
+          <End Role="likes" Type="Self.like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="users_id" />
+            </Principal>
+            <Dependent Role="likes">
+              <PropertyRef Name="liked_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="liker_users_FK">
+          <End Role="users" Type="Self.user" Multiplicity="1" />
+          <End Role="likes" Type="Self.like" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="users_id" />
+            </Principal>
+            <Dependent Role="likes">
+              <PropertyRef Name="users_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Dress_DB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dresses" EntityType="Self.dress" />
+          <EntitySet Name="dress_photo" EntityType="Self.dress_photo" />
+          <EntitySet Name="likes" EntityType="Self.like" />
+          <EntitySet Name="suburbs" EntityType="Self.suburb" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <AssociationSet Name="dress_photo_dress_FK" Association="Self.dress_photo_dress_FK">
+            <End Role="dress" EntitySet="dresses" />
+            <End Role="dress_photo" EntitySet="dress_photo" />
+          </AssociationSet>
+          <AssociationSet Name="dress_users_FK" Association="Self.dress_users_FK">
+            <End Role="users" EntitySet="users" />
+            <End Role="dress" EntitySet="dresses" />
+          </AssociationSet>
+          <AssociationSet Name="liked_user_FK" Association="Self.liked_user_FK">
+            <End Role="users" EntitySet="users" />
+            <End Role="likes" EntitySet="likes" />
+          </AssociationSet>
+          <AssociationSet Name="liker_users_FK" Association="Self.liker_users_FK">
+            <End Role="users" EntitySet="users" />
+            <End Role="likes" EntitySet="likes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Dress_Exchange_devModelStoreContainer" CdmEntityContainer="Dress_DB">
+          <EntitySetMapping Name="dresses">
+            <EntityTypeMapping TypeName="Dress_Exchange_devModel.dress">
+              <MappingFragment StoreEntitySet="dress">
+                <ScalarProperty Name="dress_id" ColumnName="dress_id" />
+                <ScalarProperty Name="users_id" ColumnName="users_id" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="condition" ColumnName="condition" />
+                <ScalarProperty Name="insert_datetime" ColumnName="insert_datetime" />
+                <ScalarProperty Name="insert_user" ColumnName="insert_user" />
+                <ScalarProperty Name="insert_process" ColumnName="insert_process" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+                <ScalarProperty Name="update_user" ColumnName="update_user" />
+                <ScalarProperty Name="update_process" ColumnName="update_process" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dress_photo">
+            <EntityTypeMapping TypeName="Dress_Exchange_devModel.dress_photo">
+              <MappingFragment StoreEntitySet="dress_photo">
+                <ScalarProperty Name="dress_photo_id" ColumnName="dress_photo_id" />
+                <ScalarProperty Name="dress_id" ColumnName="dress_id" />
+                <ScalarProperty Name="photo_location" ColumnName="photo_location" />
+                <ScalarProperty Name="photo_bytes" ColumnName="photo_bytes" />
+                <ScalarProperty Name="photo_encoded" ColumnName="photo_encoded" />
+                <ScalarProperty Name="dimensions" ColumnName="dimensions" />
+                <ScalarProperty Name="insert_datetime" ColumnName="insert_datetime" />
+                <ScalarProperty Name="insert_user" ColumnName="insert_user" />
+                <ScalarProperty Name="insert_process" ColumnName="insert_process" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+                <ScalarProperty Name="update_user" ColumnName="update_user" />
+                <ScalarProperty Name="update_process" ColumnName="update_process" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="likes">
+            <EntityTypeMapping TypeName="Dress_Exchange_devModel.like">
+              <MappingFragment StoreEntitySet="likes">
+                <ScalarProperty Name="likes_id" ColumnName="likes_id" />
+                <ScalarProperty Name="users_id" ColumnName="users_id" />
+                <ScalarProperty Name="liked_user_id" ColumnName="liked_user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="suburbs">
+            <EntityTypeMapping TypeName="Dress_Exchange_devModel.suburb">
+              <MappingFragment StoreEntitySet="suburb">
+                <ScalarProperty Name="suburb_id" ColumnName="suburb_id" />
+                <ScalarProperty Name="suburb_name" ColumnName="suburb_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="Dress_Exchange_devModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="users_id" ColumnName="users_id" />
+                <ScalarProperty Name="facebook_login" ColumnName="facebook_login" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="suburb_id" ColumnName="suburb_id" />
+                <ScalarProperty Name="insert_datetime" ColumnName="insert_datetime" />
+                <ScalarProperty Name="insert_user" ColumnName="insert_user" />
+                <ScalarProperty Name="insert_process" ColumnName="insert_process" />
+                <ScalarProperty Name="update_datetime" ColumnName="update_datetime" />
+                <ScalarProperty Name="update_user" ColumnName="update_user" />
+                <ScalarProperty Name="update_process" ColumnName="update_process" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

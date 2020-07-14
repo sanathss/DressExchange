@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/dressImage"
+        android:layout_width="match_parent"
+        android:layout_height="355dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="9dp"
+        android:background="@color/colorAccent"
+        app:srcCompat="@drawable/dress" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="182dp"
+        android:layout_height="23dp"
+        android:layout_below="@+id/dressImage"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="-1dp"
+        android:background="@color/colorAccent"
+        android:text="Description"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="title" />
+
+    <ImageView
+        android:id="@+id/heart"
+        android:layout_width="78dp"
+        android:layout_height="79dp"
+        android:layout_below="@+id/dressImage"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="6dp"
+        app:srcCompat="@drawable/heart_outline" />
+
+    <TextView
+        android:id="@+id/size"
+        android:layout_width="260dp"
+        android:layout_height="22dp"
+        android:layout_below="@+id/title"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorAccent"
+        android:text="size" />
+
+    <TextView
+        android:id="@+id/condition"
+        android:layout_width="260dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/size"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="0dp"
+        android:background="@color/colorAccent"
+        android:text="Condition" />
+
+    <TextView
+        android:id="@+id/suburb"
+        android:layout_width="118dp"
+        android:layout_height="23dp"
+        android:layout_below="@+id/dressImage"
+        android:layout_marginStart="-41dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/title"
+        android:background="@color/colorAccent"
+        android:text="suburb"
+        android:textAlignment="textEnd"
+        android:textColor="@color/design_default_color_primary"
+        android:textStyle="bold" />
+
+</RelativeLayout>

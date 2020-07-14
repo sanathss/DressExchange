@@ -1,0 +1,26 @@
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\DressExchangeServer.exe.config
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\DressExchangeServer.exe
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\DressExchangeServer.pdb
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\EntityFramework.dll
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\EntityFramework.xml
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\obj\Debug\DressExchangeServer.csprojAssemblyReference.cache
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\obj\Debug\DressExchangeServer.csproj.CoreCompileInputs.cache
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\obj\Debug\DressExchangeServer.csproj.CopyComplete
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\obj\Debug\DressExchangeServer.exe
+D:\Projects\Dress Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\obj\Debug\DressExchangeServer.pdb
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\DressExchangeServer.exe.config
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\DressExchangeServer.exe
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\DressExchangeServer.pdb
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\EntityFramework.dll
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\EntityFramework.xml
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\obj\Debug\DressExchangeServer.csprojAssemblyReference.cache
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\obj\Debug\DressExchangeServer.csproj.CoreCompileInputs.cache
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\obj\Debug\DressExchangeServer.csproj.CopyComplete
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\obj\Debug\DressExchangeServer.exe
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\obj\Debug\DressExchangeServer.pdb
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\Dress_Exchange\Server\DressExchangeServer\DressExchangeServer\DressExchangeServer\bin\Debug\Newtonsoft.Json.xml

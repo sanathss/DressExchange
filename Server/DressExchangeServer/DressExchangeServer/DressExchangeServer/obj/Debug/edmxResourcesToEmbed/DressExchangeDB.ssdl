@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Dress_Exchange_devModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="dress">
+    <Key>
+      <PropertyRef Name="dress_id" />
+    </Key>
+    <Property Name="dress_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="users_id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="size" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="dress_desc" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="photo_bytes" Type="varbinary(max)" Nullable="false" />
+    <Property Name="insert_datetime" Type="datetime" />
+    <Property Name="insert_user" Type="varchar" MaxLength="20" />
+    <Property Name="insert_process" Type="varchar" MaxLength="20" />
+    <Property Name="update_datetime" Type="datetime" />
+    <Property Name="update_user" Type="varchar" MaxLength="20" />
+    <Property Name="update_process" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="likes">
+    <Key>
+      <PropertyRef Name="likes_id" />
+    </Key>
+    <Property Name="likes_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="users_id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="liked_user_id" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="users_id" />
+    </Key>
+    <Property Name="users_id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="facebook_login" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="fullname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="size" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="insert_datetime" Type="datetime" />
+    <Property Name="insert_user" Type="varchar" MaxLength="20" />
+    <Property Name="insert_process" Type="varchar" MaxLength="20" />
+    <Property Name="update_datetime" Type="datetime" />
+    <Property Name="update_user" Type="varchar" MaxLength="20" />
+    <Property Name="update_process" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="dress_users_FK">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="dress" Type="Self.dress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="users_id" />
+      </Principal>
+      <Dependent Role="dress">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="liked_user_FK">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="likes" Type="Self.likes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="users_id" />
+      </Principal>
+      <Dependent Role="likes">
+        <PropertyRef Name="liked_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="liker_users_FK">
+    <End Role="users" Type="Self.users" Multiplicity="1" />
+    <End Role="likes" Type="Self.likes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="users_id" />
+      </Principal>
+      <Dependent Role="likes">
+        <PropertyRef Name="users_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Dress_Exchange_devModelStoreContainer">
+    <EntitySet Name="dress" EntityType="Self.dress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="likes" EntityType="Self.likes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="dress_users_FK" Association="Self.dress_users_FK">
+      <End Role="users" EntitySet="users" />
+      <End Role="dress" EntitySet="dress" />
+    </AssociationSet>
+    <AssociationSet Name="liked_user_FK" Association="Self.liked_user_FK">
+      <End Role="users" EntitySet="users" />
+      <End Role="likes" EntitySet="likes" />
+    </AssociationSet>
+    <AssociationSet Name="liker_users_FK" Association="Self.liker_users_FK">
+      <End Role="users" EntitySet="users" />
+      <End Role="likes" EntitySet="likes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
